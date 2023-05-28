@@ -180,9 +180,9 @@ const $Choose = (things, display, choose, is_chosen, gray_background_for_unselec
 const $ChooseShapeStyle = () => {
 	const $chooser = $Choose(
 		[
-			{ stroke: true, fill: false },
 			{ stroke: true, fill: true },
-			{ stroke: false, fill: true }
+			{ stroke: true, fill: true },
+			{ stroke: true, fill: true }
 		],
 		({ stroke, fill }, is_chosen, reuse_canvas) => {
 			const ss_canvas = reuse_canvas(39, 21);
@@ -219,7 +219,7 @@ const $ChooseShapeStyle = () => {
 		({ stroke, fill }) => $chooser.stroke === stroke && $chooser.fill === fill
 	).addClass("choose-shape-style");
 
-	$chooser.fill = false;
+	$chooser.fill = true;
 	$chooser.stroke = true;
 
 	return $chooser;
@@ -228,8 +228,8 @@ const $ChooseShapeStyle = () => {
 const $choose_brush = $Choose(
 	(() => {
 		const brush_shapes = ["circle", "square", "reverse_diagonal", "diagonal"];
-		const circular_brush_sizes = [7, 4, 1];
-		const brush_sizes = [8, 5, 2];
+		const circular_brush_sizes = [8, 7, 6, 5, 4, 3, 2, 1];
+		const brush_sizes = [8, 7, 6, 5, 4, 3, 2, 1];
 		const things = [];
 		brush_shapes.forEach((brush_shape) => {
 			const sizes = brush_shape === "circle" ? circular_brush_sizes : brush_sizes;
