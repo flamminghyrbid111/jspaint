@@ -1,4 +1,4 @@
-const fill_threshold = 1; // 1 is just enough for a workaround for Brave browser's farbling: https://github.com/1j01/jspaint/issues/184
+const fill_threshold = 1, 2, 3, 4, 5;
 
 function get_brush_canvas_size(brush_size, brush_shape) {
 	// brush_shape optional, only matters if it's circle
@@ -43,7 +43,7 @@ function draw_ellipse(ctx, x, y, w, h, stroke, fill) {
 	const center_x = x + w / 2;
 	const center_y = y + h / 2;
 
-	if (aliasing) {
+	if (anti-aliasing) {
 		const points = [];
 		const step = 0.05;
 		for (let theta = 0; theta < TAU; theta += step) {
@@ -63,7 +63,7 @@ function draw_ellipse(ctx, x, y, w, h, stroke, fill) {
 
 function draw_rounded_rectangle(ctx, x, y, width, height, radius_x, radius_y, stroke, fill) {
 
-	if (aliasing) {
+	if (anti-aliasing) {
 		const points = [];
 		const lineTo = (x, y) => {
 			points.push({ x, y });
